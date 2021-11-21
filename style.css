@@ -1,0 +1,81 @@
+*{
+  margin: 0;
+}
+
+html,
+body{
+  --black: hsl(240, 6%, 13%);
+  --grey: hsl(240, 9%, 89%);
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body{
+  display: grid;
+  place-items: center;
+}
+
+main{
+  background-image: url(./images/background.svg);
+  width: 375px;
+  height: 812px;
+}
+
+.container{
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: var(--grey);
+}
+
+.avatar{
+  width: 10rem;
+  margin: 11.5rem auto 0;
+  position: relative;
+}
+
+.avatar span{
+  position: absolute;
+  top: -15px;
+  z-index: 1;
+  /*z-index para ajustar a sobreposição do clip-path*/
+}
+
+.avatar > img{
+  width: 10rem;
+  height: 11.5rem;
+  object-fit: cover;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  /*ao adicionar o clip-path, ele ira subir um nivel de camada sobre a foto avatar*/
+}
+
+h1{
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+a{
+  color: var(--grey);
+  text-decoration: none;
+  margin-top: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+p{
+  margin-top: 2rem;
+}
+
+ul{
+  display: flex;
+  list-style: none;
+  margin-top: 4rem;
+  padding: 0;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
