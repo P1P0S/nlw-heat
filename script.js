@@ -1,12 +1,11 @@
 let org = {
-    youtube: "pipos",
-    twitter: "@pipos",
+    youtube: "rocketseat",
 };
 
 function changeLinks() {
     for (let hrefs of document.getElementById("socialLinks").children) {
         let social = hrefs.getAttribute("class");
-        if (social == null) {
+        if (social | (org[social] == null)) {
             return;
         }
         let target = hrefs.getElementsByTagName("a")[0];
