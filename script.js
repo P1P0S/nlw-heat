@@ -1,9 +1,10 @@
 let org = {
+    github: "P1P0S",
     youtube: "rocketseat",
 };
 
 function changeLinks() {
-    for (let hrefs of document.getElementById("socialLinks").children) {
+    for (let hrefs of socialLinks.children) {
         let social = hrefs.getAttribute("class");
         if (social | (org[social] == null)) {
             return;
@@ -14,4 +15,25 @@ function changeLinks() {
     }
 }
 
+function getGitHubProfileInfos() {
+    const url = `https://api.github.com/users/${org.github}`;
+
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            userAvatar.src = data.avatar_url;
+            userName.textContent = data.login;
+            userLogin.textContent = data.login;
+            if (data.name == null) {
+            } else {
+                userName.textContent = data.name;
+            }
+            if (data.bio == null) {
+            } else {
+                userBio.textContent = data.bio;
+            }
+        });
+}
+
 changeLinks();
+getGitHubProfileInfos();
